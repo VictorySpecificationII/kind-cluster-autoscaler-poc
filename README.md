@@ -9,10 +9,11 @@ be "span up" as load increases and "torn down" as load/node utilization decrease
 
 Features to add:
 
-[ ] Modify autoscaler to filter out cordoned/tainted nodes and only deploy on schedulable nodes
-[ ] Modify autoscaler to dynamically untaint/uncordon nodes to simulate extra capacity coming on
-[ ] Modify autoscaler to dynamically taint/cordoned nodes to simulate extra capacity spinning down
-[ ] Modify autoscaler to include sanity checks to abide strictly by the minimum requirement for HA, 3 master and 3 worker nodes
+[ ] Modify autoscaler to filter out cordoned/tainted nodes and only deploy on schedulable nodes\
+[ ] Modify autoscaler to dynamically untaint/uncordon nodes to simulate extra capacity coming on\
+[ ] Modify autoscaler to dynamically taint/cordoned nodes to simulate extra capacity spinning down\
+[ ] Modify autoscaler to include sanity checks to abide strictly by the minimum requirement for HA, 3 master and 3 worker nodes\
+
 ## Usage
 ```
 cd k8s_kind
