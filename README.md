@@ -22,4 +22,14 @@ To see the autoscaler work, you can run
 kubectl logs -f deploy/autoscaler
 ```
 
-I have included output to show where the pods are scheduled
+I have included output to show where the pods are scheduled.
+
+To tear down:
+
+```
+cd k8s_kind
+./tear_down.sh
+cd ..
+cd autoscaler_demo
+./tear_down.sh
+```
