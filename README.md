@@ -29,7 +29,4 @@ To tear down:
 ```
 cd k8s_kind
 ./tear_down.sh
-cd ..
-cd autoscaler_demo
-./tear_down.sh
 ```
