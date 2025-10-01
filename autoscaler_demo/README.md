@@ -45,3 +45,10 @@ modified autoscaler to observe and reschedule pods, very sensitive so we can obs
 need to now modify autoscaler to add/remove nodes, min amount is 3M 3W for HA mode
 
 found kindscaler YEA BOI https://github.com/lobuhi/kindscaler
+
+right, turns out it's unreliable, so the idea now is to recreate the cluster from scratch and add 3 extra nodes which i'll taint and cordon off, then untaint and uncordon as
+i add capacity, the inverse when i want to remove capacity
+
+automated cluster creation
+
+created master README

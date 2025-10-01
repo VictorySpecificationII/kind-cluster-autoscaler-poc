@@ -1,5 +1,7 @@
 cluster creation
 
+EDIT: Cluster creation has been automated, run ./spin_up.sh
+
 kind create cluster --config k8s.yaml --name melissa
 
 
