@@ -3,9 +3,7 @@
 //  -> create list
 //2. Out of list of available nodes, filter for worker nodes
 //  -> create list
-//3. Out of list of available nodes, filter for worker nodes
-//  -> create list
-//4. Observe existing pods with label "app=stress" and reschedule if needed
+//3. Observe existing pods with label "app=stress" and reschedule if needed
   // Lower threshold to 5m CPU for demo
   // Recreate on chosen node
 
@@ -56,7 +54,47 @@ func get_cordoned_off_nodes() map[string]string {
 	return cordoned_off_nodes
 }
 
+func get_worker_nodes() map[string]string{
+
+	worker_nodes := make(map[string]string)
+	cmd := exec.Command("kubectl", "get", "nodes", "-l", "role=worker")
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		fmt.Println("Error running kubectl: ", err)
+		fmt.Println("Output: ", string(output))
+		return nil
+	}
+
+	lines := strings.Split(string(output), "\n")
+//	fmt.Println(lines) //debug
+	for _, line := range lines[1:] {
+		if line == "" {
+			continue
+		}
+
+	parts := strings.Fields(line)
+//	fmt.Println(parts) //debug
+
+	node := parts[0]
+	status := parts[1]
+
+//	fmt.Println(status) //debug
+	if !strings.Contains(status, "SchedulingDisabled"){
+	worker_nodes[node] = status
+	}
+
+//	fmt.Println(cordoned_off_nodes) //debug
+
+	}
+
+	return worker_nodes
+
+
+}
+
 func main(){
 	cordoned_nodes := get_cordoned_off_nodes()
 	fmt.Println(cordoned_nodes)
+	worker_nodes := get_worker_nodes()
+	fmt.Println(worker_nodes)
 }
