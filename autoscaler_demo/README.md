@@ -52,3 +52,14 @@ i add capacity, the inverse when i want to remove capacity
 automated cluster creation
 
 created master README
+
+so i started rewriting the convoluted mess that is the autoscaler practically and iteratively
+
+grabs cordoned off nodes
+
+grabs available worker nodes
+
+i could create a generic helper since the logic for both the functions above is basically the same, and also a function that executes the kubectl commands but i'll get stuck
+fixing the errors i'll make there before fixing the errors in the logic so i'll do it later
+
+

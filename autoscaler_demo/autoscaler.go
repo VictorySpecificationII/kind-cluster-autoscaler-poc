@@ -3,10 +3,8 @@
 //  -> create list
 //2. Out of list of available nodes, filter for worker nodes
 //  -> create list
-//3. Observe existing pods with label "app=stress" and reschedule if needed
-  // Lower threshold to 5m CPU for demo
-  // Recreate on chosen node
-
+//3. Observe load on nodes
+//4. Reschedule pods on less loaded nodes
 
 
 package main
@@ -91,6 +89,14 @@ func get_worker_nodes() map[string]string{
 
 
 }
+
+func observe_cluster_load_on_available_workers() {
+
+}
+
+//func autoscale_pods_on_available_workers() {
+//
+//}
 
 func main(){
 	cordoned_nodes := get_cordoned_off_nodes()
